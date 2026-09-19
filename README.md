@@ -1,65 +1,83 @@
-# Rotating-the-Gaming-Object
-## Name: SANJEEV KUMAR V 
-## Reg No: 212225220090
-## Aim:
-To develop a 3D application for rotating the gaming objects in unity.
-## Algorithm:
-### Step1:
-Start
-### Start2:
-Click File -> Scene -> Select the scene -> Save as-> New folder(Scenes)-> File name (Expno1)
-### Start3:
-Click Hierarchy -> 3DObject -> Cylinder
-Hierarchy -> 3DObject -> Capsule
-Hierarchy -> 3DObject -> Text
-Hierarchy -> Effects -> Particle system
-### Start4:
-Create a folder in project and name as Materials
-Material folder -> Create -> Material (Name: Cylinder)
-Inspector ->Surface Inputs ->BaseMAp (Choose the color)
-Drag the Cylinder to the plane and release the mouse
+# Exp02-ROLLABALL
 
-Create a folder in project and name as Materials
-Material folder -> Create -> Material (Name: Capsule)
-Inspector ->Surface Inputs ->BaseMAp (Choose the color)
-Drag the Capsule to the plane and release the mouse
+### STEP 6 :
 
-### Start5:
-Click Hierarchy -> DirectionalLight
-Inspector -> Change the color to white (255,255,255)
+Create a folder in project and name as Materials [Material folder -> Create -> Material (Name: Background)
 
-### Start6:
-Create a folder name Coding and create a C# file to add the coding in it.
+### Inspector ->Surface Inputs ->BaseMAp (Choose the color) Metallic map-> 0, Smoothness -> 0.25, Drag the Background to the plane and release the mouse
 
-### Start7:
-To add our C# Script file to our selected object, click on the C# Script file and drag it to our selected objects in the Hierarchy window nad run the application.
+### Material folder -> Create -> Material (Name: Sphere) Inspector ->Surface Inputs ->BaseMAp (Choose the color) Metallic map-> 0,Smoothness -> 0.75,Drag the Sphere material to the ball and release the mouse
 
-### Start8:
-Stop
+### STEP 7 : 
 
-## Program:
+Hierarchy -> Player-> Inspector ->Add component-> Rigidbody
+### STEP 8 : 
+
+Create a new script -> Create a folder in project (Name: Scripts) Hierarchy -> Player -> Inspector-> AddComponent-> NewScripts-> PlayerController( Click create and Add), Copy the PlayerController and drag to Script folder, Double click the PlayerController file and type the coding
+
+## PROGRAM :
+
+```
+Created by : JOTHI GANESH P
+Reg.no : 212224240065
+
+```
+
 ```
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class Code : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float Xforce =5.0f;
+       public float Zforce =5.0f;
+       public float Yforce =100.0f; 
     void Start()
-    {
-        
+  {
+       
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(Vector3.left, Vector3.up, 40 * Time.deltaTime);
+        float X=0.0f,Y=0.0f,Z=0.0f;
+        if(Input.GetKey(KeyCode.D))
+        {
+            X=X-Xforce;
+
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+            X=X+Xforce;
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            Z=Z-Zforce;
+        }
+        if(Input.GetKey(KeyCode.W))
+        {
+            Z=Z+Zforce;
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Y=Yforce;
+        }
+        GetComponent<Rigidbody>().AddForce(X,Y,Z);
     }
 }
 ```
-## Output:
-<img width="1896" height="1012" alt="exp1 op" src="https://github.com/user-attachments/assets/7b4aecc2-3673-4483-9666-9bd3ba4eede9" />
 
-## Result:
-The 3D application for rotating the gaming objects in unity is executed sucessfully.
+## OUTPUT :
+
+
+<img width="1919" height="1084" alt="Screenshot 2026-02-03 214153" src="https://github.com/user-attachments/assets/d91f237f-d18d-4f26-8d07-40d4f8e38d12" />
+
+
+
+## RESULT :
+
+Thus, a 3D application for RollABall objects in unity is developed successfully.
+
+
+    {
+       
